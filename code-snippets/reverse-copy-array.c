@@ -1,19 +1,30 @@
 #include <stdio.h>
 
-int main(void)
+#define NUM 10
+
+void rev_rcpy(int v1[], const int v2[], int n)
 {
     int i;
-    int a[5] = {17, 23, 36};
-    int b[5];
+    for (i = 0; i < n; i++)
+        v1[i] = v2[n - 1 - i];
+}
 
-    // 将 a 数组的值倒序复制到 b 数组
-    for (i = 0; i < 5; i++)
-        b[i] = a[4 - i];
+int main(void)
+{
+    int src[NUM], dest[NUM] = {0};
+    int i;
 
-    puts("  a    b");
-    puts("---------");
-    for (i = 0; i < 5; i++)
-        printf("%4d%4d\n", a[i], b[i]);
+    printf("请为原数组赋值:\n");
+    for (i = 0; i < NUM; i++) {
+        printf("src[%d]: ", i);
+        scanf("%d", &src[i]);
+    }
+
+    rev_rcpy(dest, src, NUM);
+
+    printf("倒序复制结果:\n");
+    for (i = 0; i < NUM; i++)
+        printf("dest[%d]: %d\n", i, dest[i]);
 
     return 0;
 }

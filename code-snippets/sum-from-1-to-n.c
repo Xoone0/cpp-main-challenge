@@ -1,15 +1,20 @@
 #include <stdio.h>
 
-int main(void)
+int sump(int n)
 {
-    int n, sum = 0, i;
-
-    printf("请输入一个整数：");
-    scanf("%d", &n);
-
+    int i, sum = 0;
     for (i = 1; i <= n; i++)
         sum += i;
+    return sum;
+}
 
-    printf("1到%d的和是%d。\n", n, sum);
+int main(void)
+{
+    int n;
+
+    printf("请输入一个整数: ");
+    scanf("%d", &n);
+
+    printf("从1到%d的和为%d\n", n, sump(n));
     return 0;
 }
